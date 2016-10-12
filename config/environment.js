@@ -2,7 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'web-2',
+    modulePrefix: 'noble-trees',
+    podModulePrefix: 'noble-trees/pods',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

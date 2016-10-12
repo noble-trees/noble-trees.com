@@ -1,7 +1,7 @@
 {
-  "name": "web-2",
+  "name": "noble-trees",
   "version": "0.0.0",
-  "description": "Small description for web-2 goes here",
+  "description": "Small description for noble-trees goes here",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
+    "start": "ember server --port 1337",
     "test": "ember test"
   },
   "repository": "",
