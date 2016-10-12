@@ -1,6 +1,6 @@
-import DS from 'ember-data';
+import WordPressAdapter from 'ember-wordpress/adapters/wordpress';
 
-export default DS.RESTAdapter.extend({
+export default WordPressAdapter.extend({
 
   shouldBackgroundReloadAll() {
     return false;
