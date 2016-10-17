@@ -4,5 +4,6 @@ const { attr } = DS;
 
 export default DS.Model.extend({
   title:         attr('string'),
+  slug:          attr('string'),
   featuredImage: attr()
 });

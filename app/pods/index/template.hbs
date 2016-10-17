@@ -1,6 +1,6 @@
 <p>Galleries.</p>
 <ul>
   {{#each model as |gallery|}}
-    <li>{{gallery.title}}</li>
+    <li>{{#link-to 'gallery' gallery.slug}}{{gallery.title}}{{/link-to}}</li>
   {{/each}}
 </ul>
