@@ -8,12 +8,17 @@ export default ApplicationAdapter.extend({
     return this._super('page', snapshot) + '?parent=62&_embed';
   },
 
+  urlForFindRecord(id, modelName, snapshot) {
+    return this._super(id, 'page', snapshot).replace(id, '?filter[name]=' + id);
+  },
+
   urlForQuery(query) {
     return this._super(query, 'page');
   },
 
   findHasMany (store, snapshot, url, { type }) {
-    // HACK: For some reason, these results come back with the type of 'gallery'.
+    // HACK: For some reason, these results come back with the type of
+    // 'attachment', which ED maps to 'gallery'.
     return this._super(...arguments).then(results => results.map(r => ({ ...r, type })));
   },
 
