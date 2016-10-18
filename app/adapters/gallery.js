@@ -15,7 +15,12 @@ export default ApplicationAdapter.extend({
   handleResponse(status, headers, payload, requestData) {
     payload.forEach(gallery => {
       gallery.type = 'gallery';
-      gallery.featured_image = Ember.get(gallery, '_embedded.wp:featuredmedia.firstObject');
+      let featuredImage = Ember.get(gallery, '_embedded.wp:featuredmedia.firstObject');
+      if (featuredImage) {
+        // NOTE: ED doesn't _need_ 'type', but I prefer the explicitness.
+        featuredImage.type = 'media';
+        gallery.featured_image = featuredImage;
+      }
       return gallery;
     });
     return this._super(status, headers, payload, requestData);

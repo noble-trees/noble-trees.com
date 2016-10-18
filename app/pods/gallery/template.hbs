@@ -1,9 +1,8 @@
 <h2>{{model.gallery.title}}</h2>
-<h3>{{model.images.length}}</h3>
 <ul>
   {{#each model.images as |image|}}
     <li>
-      <img src={{image.mediaDetails.sizes.thumbnail.source_url}} style="height: 50px; width: 50px;">
+      <img src={{image.thumbnailUrl}} style="height: 50px; width: 50px;">
     </li>
   {{/each}}
 </ul>
