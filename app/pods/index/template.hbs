@@ -1,6 +1,13 @@
 <p>Galleries.</p>
 <ul>
   {{#each model as |gallery|}}
-    <li>{{#link-to 'gallery' gallery.slug}}{{gallery.title}}{{/link-to}}</li>
+    <li>
+      {{#link-to 'gallery' gallery.slug}}
+        {{#if gallery.featuredImage}}
+          <img src={{gallery.featuredImage.media_details.sizes.thumbnail.source_url}} style="height: 50px; width: 50px;">
+        {{/if}}
+        {{gallery.title}}
+      {{/link-to}}
+    </li>
   {{/each}}
 </ul>

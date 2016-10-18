@@ -10,7 +10,7 @@ export default Ember.Route.extend({
         return Ember.RSVP.hash({
           gallery,
           images: this.store.query('media', { parent: gallery.id })
-        })
+        });
       });
   }
 

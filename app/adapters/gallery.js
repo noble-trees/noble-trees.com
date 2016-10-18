@@ -8,7 +8,7 @@ export default ApplicationAdapter.extend({
     return this._super('page', snapshot) + '?parent=62&_embed';
   },
 
-  urlForQuery(query, modelName) {
+  urlForQuery(query) {
     return this._super(query, 'page');
   },
 
