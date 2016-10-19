@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  color: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-decoration: inherit;
+}
+
+:root {
+  height: 100%;
+  background: linear-gradient(to bottom right, #406325, #AA962E);
+  color: #FFF;
+  font-family: 'IM Fell DW Pica', serif;
+  font-size: 62.5%;
+  line-height: 1;
+  text-align: center;
+}
+
+h1,
+nav,
+main,
+footer {
+  display: block;
+  margin: 20px 0;
+}
+
+h1 {
+  height: 180px;
+
+  background-image: url('/logo.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font: 0/0 a;
+}
+
+nav {
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 0;
+  text-transform: lowercase;
+
+  a {
+    display: inline-block;
+    color: rgba(#fff, 0.5);
+    font-size: 3.2rem;
+
+    &.active {
+      color: #fff;
+    }
+  }
+
+  a + a::before {
+    content: '•';
+    display: inline-block;
+    margin: 0 20px;
+    color: rgba(#fff, 0.5);
+  }
+}
+
+footer {
+  color: rgba(#fff, 0.5);
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+.thumbnail-list {
+
+  margin: 0 auto;
+  width: 375px;
+
+  font-size: 3.2rem;
+
+  li {
+    display: block;
+    margin: 20px 0;
+
+    &:nth-of-type(2n - 1) a {
+      flex-direction: row;
+
+      span {
+        text-align: left;
+      }
+    }
+
+    &:nth-of-type(2n) a {
+      flex-direction: row-reverse;
+      span {
+        text-align: right;
+      }
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin: 0 10px;
+    }
+  }
+
+  .thumbnail {
+    height: 72px;
+    width: 72px;
+
+    border: 2px solid #fff;
+    border-radius: 100%;
+  }
+
+  span {
+    display: block;
+  }
+
+  .title {
+
+  }
+
+  .subtitle {
+    color: rgba(#fff, 0.5);
+    font-size: 1.8rem;
+  }
+
+}
+
+.loader {
+  height: 22px;
+  width: 22px;
+  margin: 20px;
+
+  animation: spin 1.0s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

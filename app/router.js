@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('gallery', { path: 'gallery/:gallery_slug' });
   this.route('artists');
   this.route('shows');
+  this.route('loading');
 });
 
 export default Router;

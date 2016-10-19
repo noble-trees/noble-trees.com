@@ -1,6 +1,13 @@
-<p>Shows.</p>
-<ul>
+<ul class="thumbnail-list">
   {{#each model as |show|}}
-    <li>{{show.title}} ({{show.startDate}})</li>
+    <li>
+      <a href={{show.url}} target="_blank">
+        <img class="thumbnail" src={{show.thumbnailUrl}} />
+        <span class="details">
+          <span class="title">{{show.title}}</span>
+          <span class="subtitle">{{moment-format show.startDateUtc 'MMMM Do, YYYY'}}</span>
+        </span>
+      </a>
+    </li>
   {{/each}}
 </ul>

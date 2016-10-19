@@ -1,6 +1,13 @@
-<p>Artists.</p>
-<ul>
+<ul class="thumbnail-list">
   {{#each model as |artist|}}
-    <li>{{artist.firstName}} (@{{artist.twitter}})</li>
+    <li>
+      <a href={{artist.url}} target="_blank">
+        <img class="thumbnail" src={{artist.avatarUrl}} />
+        <span class="details">
+          <span class="title">{{artist.firstName}}</span>
+          <span class="subtitle">{{#if artist.twitter}}@{{artist.twitter}}{{/if}}</span>
+        </span>
+      </a>
+    </li>
   {{/each}}
 </ul>
