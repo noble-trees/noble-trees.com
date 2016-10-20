@@ -1,3 +1,7 @@
+$color-left:  #C1B459;
+$color-right: #406325;
+$color-mix:   mix($color-left, $color-right);
+
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +14,13 @@
 
 :root {
   height: 100%;
-  background: linear-gradient(to bottom right, #406325, #AA962E);
-  color: #FFF;
+  // background: linear-gradient(to bottom right, #406325, #AA962E);
+  background-image:
+    radial-gradient(farthest-corner, rgba(#000, 0) 50%, rgba(#000, 0.75) 125%),
+    url('/background.jpg');
+  background-position: center;
+  background-size: cover;
+  color: $color-mix;
   font-family: 'IM Fell DW Pica', serif;
   font-size: 62.5%;
   line-height: 1;
@@ -26,28 +35,40 @@ footer {
   margin: 20px 0;
 }
 
-h1 {
-  height: 180px;
+main {
+  padding: 20px 0;
+}
 
-  background-image: url('/logo.svg');
+h1 {
+  height: 200px;
+
+  background-image: url('/logo.png');
   background-position: center;
   background-repeat: no-repeat;
+  background-size: 200px 200px;
+  filter: drop-shadow(0 0 10px rgba(#8c6100, 0.75));
 
   font: 0/0 a;
 }
 
 nav {
+
+  filter: drop-shadow(0 0 10px rgba(#8c6100, 0.75));
+
   font-family: 'IM Fell DW Pica SC', serif;
   font-size: 0;
   text-transform: lowercase;
 
   a {
     display: inline-block;
-    color: rgba(#fff, 0.5);
+    color: rgba($color-mix, 0.5);
     font-size: 3.2rem;
 
-    &.active {
-      color: #fff;
+    transition: color 200ms;
+
+    &.active:not(.ember-transitioning-out),
+    &.ember-transitioning-in {
+      color: $color-left;
     }
   }
 
@@ -55,19 +76,40 @@ nav {
     content: '•';
     display: inline-block;
     margin: 0 20px;
-    color: rgba(#fff, 0.5);
+    color: rgba($color-mix, 0.25);
   }
-}
-
-footer {
-  color: rgba(#fff, 0.5);
-  font-family: 'IM Fell DW Pica SC', serif;
-  font-size: 1.2rem;
-  text-transform: uppercase;
 }
 
 p {
   font-size: 1.8rem;
+}
+
+footer {
+  color: rgba($color-left, 0.25);
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+
+  p {
+    font-size: inherit;
+  }
+
+  a {
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    margin: 0 20px 20px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    opacity: 0.25;
+
+    font: 0/0 a;
+  }
+
+  .s-twitter  { background-image: url('/s-twitter.svg'); }
+  .s-facebook { background-image: url('/s-facebook.svg'); }
 }
 
 .thumbnail-list {
@@ -75,14 +117,27 @@ p {
   margin: 0 auto;
   width: 375px;
 
+  filter: drop-shadow(0 0 5px rgba(#8c6100, 0.5));
+
   font-size: 3.2rem;
 
   li {
     display: block;
     margin: 20px 0;
 
+    .details {
+
+      color: mix(#406325, #AA962E);
+
+    }
+
     &:nth-of-type(2n - 1) a {
       flex-direction: row;
+
+      img {
+        background-color: $color-left;
+        border-color: $color-left;
+      }
 
       span {
         text-align: left;
@@ -91,6 +146,12 @@ p {
 
     &:nth-of-type(2n) a {
       flex-direction: row-reverse;
+
+      img {
+        background-color: $color-right;
+        border-color: $color-right;
+      }
+
       span {
         text-align: right;
       }
@@ -101,9 +162,15 @@ p {
     display: flex;
     align-items: center;
 
+    background-image: linear-gradient(to right, $color-left 50%, $color-right);
+    background-position: top left -375px;
+    background-size: 750px 2px;
+    -webkit-background-clip: text;
+
     img {
       margin: 0 10px;
     }
+
   }
 
   .thumbnail {
@@ -119,12 +186,13 @@ p {
   }
 
   .title {
-
+    -webkit-text-fill-color: transparent;
   }
 
   .subtitle {
-    color: rgba(#fff, 0.5);
+    color: $color-mix;
     font-size: 1.8rem;
+    opacity: 0.5;
   }
 
 }
