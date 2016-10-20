@@ -6,7 +6,7 @@ module.exports = function(environment) {
     podModulePrefix: 'noble-trees/pods',
     environment: environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     wordpressHost: 'http://nobletrees.x10host.com',
     EmberENV: {
       FEATURES: {

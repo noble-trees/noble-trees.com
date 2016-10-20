@@ -14,7 +14,9 @@ $color-mix:   mix($color-left, $color-right);
 
 :root {
   height: 100%;
+
   // background: linear-gradient(to bottom right, #406325, #AA962E);
+  background-attachment: fixed;
   background-image:
     radial-gradient(farthest-corner, rgba(#000, 0) 50%, rgba(#000, 0.75) 125%),
     url('/background.jpg');
@@ -162,10 +164,9 @@ footer {
     display: flex;
     align-items: center;
 
-    background-image: linear-gradient(to right, $color-left 50%, $color-right);
-    background-position: top left -375px;
-    background-size: 750px 2px;
-    -webkit-background-clip: text;
+
+
+    color: $color-mix;
 
     img {
       margin: 0 10px;
@@ -185,12 +186,18 @@ footer {
     display: block;
   }
 
+  .details {
+
+  }
+
   .title {
+    background-image: linear-gradient(to right, $color-left, $color-right);
+    background-position: top left;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .subtitle {
-    color: $color-mix;
     font-size: 1.8rem;
     opacity: 0.5;
   }
