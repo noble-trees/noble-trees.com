@@ -7,8 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('gallery', { path: 'gallery/:gallery_slug' }, function() {
-    this.route('zoom', { path: ':slug' });
+  this.route('galleries', { path: '/' }, function() {
+    this.route('gallery', { path: 'gallery/:gallery_slug' }, function() {
+      this.route('zoom', { path: ':slug' });
+    });
   });
   this.route('artists');
   this.route('shows');

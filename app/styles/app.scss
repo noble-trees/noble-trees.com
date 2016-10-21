@@ -55,6 +55,11 @@ h1 {
 }
 
 h2 {
+  display: inline-block;
+  background-image: linear-gradient(to right, $color-left, $color-right);
+  background-position: top left;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 3.2rem;
 }
 
@@ -148,6 +153,7 @@ footer {
 
 .gallery-list {
 
+  min-height: 118px;
   padding: 0 10px;
 
   li {

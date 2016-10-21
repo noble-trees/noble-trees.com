@@ -2,7 +2,7 @@
 <ul class="gallery-list">
   {{#each model.images as |image|}}
     <li>
-      {{#link-to 'gallery.zoom' image.slug}}
+      {{#link-to 'galleries.gallery.zoom' image.slug}}
         <img src={{image.thumbnailUrl}} class="thumbnail">
       {{/link-to}}
     </li>
