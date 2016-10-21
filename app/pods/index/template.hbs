@@ -1,14 +1,12 @@
-<p>&ndash; Coming soon! &ndash;</p>
-{{!-- <p>Galleries.</p>
-<ul>
+<ul class="thumbnail-list">
   {{#each model as |gallery|}}
     <li>
       {{#link-to 'gallery' gallery.slug}}
-        {{#if gallery.featuredImage}}
-          <img src={{gallery.featuredImage.thumbnailUrl}} style="height: 50px; width: 50px;">
-        {{/if}}
-        {{gallery.title}}
+        <img class="thumbnail" src={{gallery.featuredImage.thumbnailUrl}} />
+        <span class="details">
+          <span class="title">{{gallery.title}}</span>
+        </span>
       {{/link-to}}
     </li>
   {{/each}}
-</ul> --}}
+</ul>
