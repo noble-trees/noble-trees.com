@@ -2,6 +2,8 @@ $color-left:  #C1B459;
 $color-right: #406325;
 $color-mix:   mix($color-left, $color-right);
 
+$width-iphoneplus: 414px;
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +17,6 @@ $color-mix:   mix($color-left, $color-right);
 :root {
   height: 100%;
 
-  // background: linear-gradient(to bottom right, #406325, #AA962E);
   background-attachment: fixed;
   background-image:
     radial-gradient(farthest-corner, rgba(#000, 0) 50%, rgba(#000, 0.75) 125%),
@@ -53,6 +54,34 @@ h1 {
   font: 0/0 a;
 }
 
+h2 {
+  display: inline-block;
+  background-image: linear-gradient(to right, $color-left, $color-right);
+  background-position: top left;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.2rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+@media (max-width: $width-iphoneplus) {
+  main {
+    margin: 25px 0;
+    padding: 0;
+  }
+  h1 {
+    height: 150px;
+    margin: 10px 0;
+    background-size: 150px 150px;
+  }
+  h2 {
+    font-size: 2.6rem;
+  }
+}
+
 nav {
 
   filter: drop-shadow(0 0 10px rgba(#8c6100, 0.75));
@@ -82,8 +111,16 @@ nav {
   }
 }
 
-p {
-  font-size: 1.8rem;
+@media (max-width: $width-iphoneplus) {
+
+  nav a {
+    font-size: 2.6rem;
+  }
+
+  nav a + a::before {
+    margin: 0 10px;
+  }
+
 }
 
 footer {
@@ -114,10 +151,37 @@ footer {
   .s-facebook { background-image: url('/s-facebook.svg'); }
 }
 
+.gallery-list {
+
+  min-height: 118px;
+  padding: 0 10px;
+
+  li {
+    display: inline-block;
+    margin: 20px 10px;
+  }
+
+  a {
+    display: block;
+  }
+
+  .thumbnail {
+    height: 72px;
+    width: 72px;
+
+    color: $color-left;
+    background-color: currentColor;
+    border: 2px solid currentColor;
+    border-radius: 100%;
+  }
+
+}
+
 .thumbnail-list {
 
   margin: 0 auto;
-  width: 375px;
+  max-width: 375px;
+  width: 100%;
 
   filter: drop-shadow(0 0 5px rgba(#8c6100, 0.5));
 
@@ -204,6 +268,21 @@ footer {
 
 }
 
+@media (max-width: $width-iphoneplus) {
+
+  .thumbnail-list {
+
+    font-size: 2.6rem;
+
+    .thumbnail {
+      height: 50px;
+      width: 50px;
+    }
+
+  }
+
+}
+
 .loader {
   height: 22px;
   width: 22px;
@@ -217,4 +296,30 @@ footer {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.lightbox {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background-color: rgba(#222620, 0.75);
+
+  .zoomed {
+    height: 100%;
+    width: 100%;
+    max-height: 90vh;
+    max-width: 90vw;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
 }

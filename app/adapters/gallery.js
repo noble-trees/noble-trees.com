@@ -16,7 +16,7 @@ export default ApplicationAdapter.extend({
     return this._super(query, 'page');
   },
 
-  findHasMany (store, snapshot, url, { type }) {
+  findHasMany(store, snapshot, url, { type }) {
     // HACK: For some reason, these results come back with the type of
     // 'attachment', which ED maps to 'gallery'.
     return this._super(...arguments).then(results => results.map(r => ({ ...r, type })));
@@ -32,7 +32,7 @@ export default ApplicationAdapter.extend({
       if (featuredImage) {
         // NOTE: ED doesn't _need_ 'type', but I prefer the explicitness.
         featuredImage.type = 'media';
-        gallery.featured_image = featuredImage;
+        gallery.featuredImage = featuredImage;
       }
       return gallery;
     });

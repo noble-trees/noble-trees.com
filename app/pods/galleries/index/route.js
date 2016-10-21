@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model() {
-    // return this.store.findAll('gallery');
+    return this.store.findAll('gallery');
   }
 
 });

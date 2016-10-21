@@ -1,0 +1,11 @@
+<h2>{{model.title}}</h2>
+<ul class="gallery-list">
+  {{#each model.images as |image|}}
+    <li>
+      {{#link-to 'galleries.gallery.zoom' image.slug}}
+        <img src={{image.thumbnailUrl}} class="thumbnail">
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
+{{outlet}}

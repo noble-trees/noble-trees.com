@@ -5,6 +5,6 @@ const { attr, belongsTo, hasMany } = DS;
 export default DS.Model.extend({
   title:         attr('string'),
   slug:          attr('string'),
-  featuredImage: belongsTo('media'),
+  featuredImage: belongsTo('media', { async: false }),
   images:        hasMany('media')
 });

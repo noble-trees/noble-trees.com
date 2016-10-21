@@ -1,0 +1,12 @@
+<ul class="thumbnail-list">
+  {{#each model as |gallery|}}
+    <li>
+      {{#link-to 'galleries.gallery' gallery.slug}}
+        <img class="thumbnail" src={{gallery.featuredImage.thumbnailUrl}} />
+        <span class="details">
+          <span class="title">{{gallery.title}}</span>
+        </span>
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
